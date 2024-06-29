@@ -1,0 +1,210 @@
+:root {{
+    --wal-background: {background.rgb};
+    --wal-foreground: {foreground.rgb};
+    --wal-cursor: {cursor.rgb};
+    --wal-color-0: {color0.rgb};
+    --wal-color-1: {color1.rgb};
+    --wal-color-2: {color2.rgb};
+    --wal-color-3: {color3.rgb};
+    --wal-color-4: {color4.rgb};
+    --wal-color-5: {color5.rgb};
+    --wal-color-6: {color6.rgb};
+    --wal-color-7: {color7.rgb};
+    --wal-color-8: {color8.rgb};
+    --wal-color-9: {color9.rgb};
+    --wal-color-10: {color10.rgb};
+    --wal-color-11: {color11.rgb};
+    --wal-color-12: {color12.rgb};
+    --wal-color-13: {color13.rgb};
+    --wal-color-14: {color14.rgb};
+    --wal-color-15: {color15.rgb};
+
+    --bg-ll: 1.25;
+    --bg-ell: 1.85;
+
+    --wal-bg-red: calc({background.red} * 255);
+    --wal-bg-green: calc({background.green} * 255);
+    --wal-bg-blue: calc({background.blue} * 255);
+    --wal-red-light: min(max(0, calc(var(--wal-bg-red) + (var(--wal-bg-red) * var(--bg-ll)))), 255);
+    --wal-green-light: min(max(0, calc(var(--wal-bg-green) + (var(--wal-bg-green) * var(--bg-ll)))), 255);
+    --wal-blue-light: min(max(0, calc((var(--wal-bg-blue) + var(--wal-bg-blue) * var(--bg-ll)))), 255);
+    --wal-background-light: var(--wal-red-light), var(--wal-green-light), var(--wal-blue-light);
+
+    --wal-red-extra-light: min(max(0, calc(var(--wal-bg-red) + (var(--wal-bg-red) * var(--bg-ell)))), 255);
+    --wal-green-extra-light: min(max(0, calc(var(--wal-bg-green) + (var(--wal-bg-green) * var(--bg-ell)))), 255);
+    --wal-blue-extra-light: min(max(0, calc((var(--wal-bg-blue) + var(--wal-bg-blue) * var(--bg-ell)))), 255);
+    --wal-background-extra-light: var(--wal-red-extra-light), var(--wal-green-extra-light), var(--wal-blue-extra-light);
+
+    --wal-accent: {color12.rgb};
+    --wal-accent-dark: {color4.rgb};
+    --wal-accent-red: calc({color12.red} * 255);
+    --wal-accent-green: calc({color12.green} * 255);
+    --wal-accent-blue: calc({color12.blue} * 255);
+    --wal-accent-red-light: min(max(0, calc(var(--wal-accent-red) + (var(--wal-accent-red) * var(--bg-ll)))), 255);
+    --wal-accent-green-light: min(max(0, calc(var(--wal-accent-green) + (var(--wal-accent-green) * var(--bg-ll)))), 255);
+    --wal-accent-blue-light: min(max(0, calc((var(--wal-accent-blue) + var(--wal-accent-blue) * var(--bg-ll)))), 255);
+    --wal-accent-light: var(--wal-accent-red-light), var(--wal-accent-green-light), var(--wal-accent-blue-light);
+
+    --rt-color-white: rgb(var(--wal-foreground));
+    --rt-color-dark: rgb(var(--wal-background));
+}}
+
+.theme__dark .settings .settings__main {{
+    background: rgb(var(--wal-background));
+}}
+
+.theme__dark .app .sidebar .sidebar__button.is-muted,
+.theme__dark .app .sidebar .sidebar__button.is-active,
+.sidebar .sidebar__button.is-muted,
+.sidebar .sidebar__button.is-active,
+.settings .account .invoices .invoices__action button,
+.settings-navigation .settings-navigation__link.is-active .badge,
+a.link,
+button.link,
+.auth .welcome .button:hover,
+.auth .welcome .button__inverted,
+.franz-form .franz-form__radio.is-selected,
+.theme__dark .franz-form__button.franz-form__button--inverted,
+.franz-form__button.franz-form__button--inverted {{
+    color: rgb(var(--wal-accent));
+}}
+
+.settings .settings__header,
+.settings .settings__close,
+.settings-navigation .settings-navigation__link.is-active,
+a.button,
+button.button,
+.info-bar,
+.info-bar.info-bar--primary,
+.infobox.infobox--primary,
+.theme__dark .badge.badge--primary,
+.badge.badge--primary,
+.content-tabs .content-tabs__tabs .content-tabs__item.is-active,
+#electron-app-title-bar .toolbar-dropdown:not(.open) > .toolbar-button > button:hover,
+#electron-app-title-bar .list-item.selected .menu-item,
+#electron-app-title-bar .list-item.selected:focus .menu-item,
+.theme__dark .quick-switch .active,
+.franz-form .franz-form__toggle-wrapper .franz-form__toggle.is-active .franz-form__toggle-button,
+.theme__dark .franz-form__button,
+.franz-form__button,
+.ferdium__fab,
+.franz-form .franz-form__slider-wrapper .slider::-webkit-slider-thumb,
+span.loader div > div > div {{
+    background: rgb(var(--wal-accent));
+}}
+
+.settings .settings__header .separator {{
+    border-right-color: rgb(var(--wal-accent));
+}}
+
+.franz-form .franz-form__radio.is-selected, .tab-item.is-active {{
+    border-color: rgb(var(--wal-accent));
+}}
+
+a.button:hover, button.button:hover {{
+    background: rgb(var(--wal-accent-dark));
+}}
+
+.franz-form__button:hover,
+.franz-form__button.franz-form__button--inverted:hover,
+.settings .settings__close:hover,
+.theme__dark .franz-form__button:hover,
+.theme__dark .franz-form__button.franz-form__button--inverted:hover,
+.theme__dark .settings .settings__close:hover {{
+    background: rgb(var(--wal-accent-light));
+}}
+
+.franz-form__button:active,
+.theme__dark .franz-form__button:active {{
+    background: rgb(var(--wal-accent-light));
+}}
+
+.settings__close {{
+    border-color: rgb(var(--wal-accent-light))!important;
+}}
+
+.theme__dark .franz-form__button.franz-form__button--inverted,
+.franz-form__button.franz-form__button--inverted {{
+    background: none;
+    border-color: rgb(var(--wal-accent));
+}}
+
+.tab-item.is-active {{
+    background: rgb(var(--wal-color-7));
+}}
+
+.sidebar {{
+    width: 55px !important;
+}}
+.tabs {{
+    justify-content: start;
+}}
+.tab-item {{
+    width: 55px !important;
+    height: 52px !important;
+    min-height: 52px !important;
+}}
+.tab-item .tab-item__icon {{
+    width: 27.5px !important;
+}}
+.sidebar__button {{
+    font-size: 18px !important;
+}}
+.todos__todos-panel--expanded {{
+    width: calc(100% - 355px) !important;
+}}
+body {{
+    counter-reset: services;
+}}
+
+#electron-app-title-bar {{
+    background: rgb(var(--wal-background));
+    color: rgb(var(--wal-background));
+}}
+
+#app-menu-bar {{
+    background: rgb(var(--wal-background));
+}}
+
+#electron-app-title-bar #app-menu-bar {{
+    background: rgb(var(--wal-background));
+}}
+
+.theme__dark #electron-app-title-bar {{
+    background: rgb(var(--wal-background));
+    color: rgb(var(--wal-background));
+}}
+
+.theme__dark #app-menu-bar {{
+    background: rgb(var(--wal-background));
+}}
+
+.theme__dark #electron-app-title-bar #app-menu-bar {{
+    background: rgb(var(--wal-background));
+}}
+
+
+.sidebar .tabs {{
+    margin-left: 4px;
+}}
+.theme__dark .app .sidebar {{
+    background: rgb(var(--wal-background));
+}}
+.theme__dark .app .sidebar::after {{
+    box-shadow: none;
+}}
+.theme__dark .tab-item {{
+    width: auto !important;
+    flex-direction: row;
+    gap: 7px;
+    filter: brightness(0.5);
+    padding: 0 10px;
+}}
+.theme__dark .tab-item.is-active {{
+    background: rgb(var(--wal-background-extra-light));
+    filter: brightness(1);
+    border-right-width: 8px;
+    border-left-width: 0px;
+    border-right-style: solid;
+
+}}
