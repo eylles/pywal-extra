@@ -1,0 +1,47 @@
+conky.config = {
+-- Conky settings #
+ background = true,
+ update_interval = 1,
+
+ cpu_avg_samples = 2,
+ net_avg_samples = 2,
+
+ override_utf8_locale = true,
+
+ double_buffer = true,
+ no_buffers = true,
+
+ text_buffer_size = 2048,
+--imlib_cache_size 0
+
+ temperature_unit = 'celsius',
+
+-- Window specifications #
+ own_window = true,
+ own_window_type = 'desktop',
+ own_window_transparent = false,
+ own_window_hints = 'undecorated, sticky, skip_taskbar, below',
+
+ border_inner_margin = 0,
+ border_outer_margin = 0,
+
+ minimum_width = 350, minimum_height = 550,
+ maximum_width = 550,
+
+ alignment = 'top_right',
+ gap_x = -20,
+ gap_y = 35,
+
+-- Graphics settings #
+ draw_shades = false,
+ draw_outline = true,
+ draw_borders = false,
+ draw_graph_borders = false,
+
+-- Text settings #
+ use_xft = true,
+ override_utf8_locale = true,
+ uppercase = false,
+ pad_percents = 9,
+
+ temperature_unit = 'celsius',

@@ -1,0 +1,7 @@
+
+
+default_color = 'fff',
+color0 = '{color7.strip}',
+color1 = '{color6.strip}',
+default_outline_color = '{color0.strip}',
+default_shade_color = '{color0.strip}',
