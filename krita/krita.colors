@@ -1,0 +1,28 @@
+[ColorEffects:Active]
+ChangeSelectionColor = true
+
+
+[Colors:Button]
+BackgroundNormal     = {color0.rgb}
+ForegroundNormal     = {color15.rgb}
+
+
+[Colors:Selection]
+BackgroundNormal     = {color12.rgb}
+ForegroundNormal     = {color0.rgb}
+
+
+[Colors:View]
+BackgroundAlternate  = {color8.rgb}
+BackgroundNormal     = {color0.rgb}
+ForegroundLink       = {color10.rgb}
+ForegroundNormal     = {color15.rgb}
+
+
+[Colors:Window]
+BackgroundNormal     = {color0.rgb}
+ForegroundNormal     = {color15.rgb}
+
+
+[General]
+Name                 = KritaWal
