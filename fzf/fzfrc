@@ -1,0 +1,11 @@
+. ~/.cache/wal/fzf-cols
+
+FZF_LAYOUT="--layout=reverse --height 40% --border=sharp --preview-window=sharp"
+# FZF_COLORS="--color fg:15,bg:0,hl:10,fg+:7,bg+:1,hl+:7,info:10,spinner:11,marker:10,pointer:3,header:12"
+FZF_COLORS="--color=fg:${foreground},bg:${background},hl:${color10l},fg+:${foreground},bg+:${background3},hl+:${color12} \
+--color=info:${color10},prompt:${color13},pointer:${color10},marker:${color12l},spinner:${color14},header:${color4}"
+FZF_BINDS="--bind alt-k:preview-up --bind alt-j:preview-down"
+export FZF_DEFAULT_OPTS="${FZF_LAYOUT} ${FZF_COLORS} ${FZF_BINDS}"
+export FZF_TMUX=1
+
+# vim: ft=sh
