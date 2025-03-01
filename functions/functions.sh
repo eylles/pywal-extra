@@ -105,6 +105,9 @@ lighten () {
     rgbcol=$(hexToRgb "$color")
     colout=""
     i=0
+    if [ -n ${ZSH_VERSION-} ]; then
+        setopt sh_word_split
+    fi
     for colbit in $(split_list "$rgbcol" ","); do
         modbit=$(( colbit + ( 255 * amount / 100 ) ))
         # printf '%s: %d\n' "$i" "$modbit"
@@ -113,6 +116,9 @@ lighten () {
         i=$(( i + 1))
     done
     printf '#%s\n' "$colout"
+    if [ -n ${ZSH_VERSION-} ]; then
+        unsetopt sh_word_split
+    fi
 }
 
 # return type: hexrgb string
@@ -123,6 +129,9 @@ darken () {
     rgbcol=$(hexToRgb "$color")
     colout=""
     i=0
+    if [ -n ${ZSH_VERSION-} ]; then
+        setopt sh_word_split
+    fi
     for colbit in $(split_list "$rgbcol" ","); do
         modbit=$(( colbit - ( 255 * amount / 100 ) ))
         # printf '%s: %d\n'   "$i" "$modbit"
@@ -131,5 +140,8 @@ darken () {
         i=$(( i + 1))
     done
     printf '#%s\n' "$colout"
+    if [ -n ${ZSH_VERSION-} ]; then
+        unsetopt sh_word_split
+    fi
 }
 
