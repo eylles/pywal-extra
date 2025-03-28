@@ -1,0 +1,53 @@
+#!/bin/sh
+
+myname="${0##*/}"
+
+pipe="/tmp/nvim.pipe"
+colorscheme="pywal16"
+statusbar=""
+
+config_dir="${XDG_CONFIG_HOME:-~/.config}/nvim-colo-reload"
+config_file="${config_dir}/configrc"
+
+rel_colo () {
+    nvim --server "$pipe" --remote-send ":colorscheme ${colorscheme}<CR>"
+}
+
+rel_bar () {
+    if [ -n "$statusbar" ]; then
+        send_com=""
+        case "$statusbar" in
+            lualine)
+                send_com="lua require'lualine'.setup{options={theme='${colorscheme}'}}"
+                ;;
+        esac
+        nvim --server "$pipe" --remote-send ":$send_com<CR>"
+    fi
+}
+
+rel_other () {
+    :
+}
+
+# loading the config here means the user can overwrite any of the functions
+if [ -f "$config_file" ]; then
+    . "$config_file"
+else
+    if [ ! -d "$config_dir" ]; then
+        mkdir -p "$config_dir"
+    fi
+    cat << __HEREDOC__ >> "$config_file"
+# vim: ft=sh
+# ${myname} config file
+
+# colorscheme
+colorscheme="${colorscheme}"
+
+# statusbar
+statusbar=""
+__HEREDOC__
+fi
+
+rel_colo
+rel_bar
+rel_other
