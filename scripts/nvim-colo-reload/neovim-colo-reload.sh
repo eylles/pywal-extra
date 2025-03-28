@@ -9,8 +9,12 @@ statusbar=""
 config_dir="${XDG_CONFIG_HOME:-~/.config}/nvim-colo-reload"
 config_file="${config_dir}/configrc"
 
+nvim_send () {
+    nvim --server "$pipe" --remote-send ":${1}<CR>"
+}
+
 rel_colo () {
-    nvim --server "$pipe" --remote-send ":colorscheme ${colorscheme}<CR>"
+    nvim_send "colorscheme ${colorscheme}"
 }
 
 rel_bar () {
@@ -21,7 +25,7 @@ rel_bar () {
                 send_com="lua require'lualine'.setup{options={theme='${colorscheme}'}}"
                 ;;
         esac
-        nvim --server "$pipe" --remote-send ":$send_com<CR>"
+        nvim_send ":$send_com<CR>"
     fi
 }
 
