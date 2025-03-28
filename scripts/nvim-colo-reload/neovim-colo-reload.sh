@@ -44,6 +44,8 @@ else
 # vim: ft=sh
 # ${myname} config file
 
+pipe="${pipe}"
+
 # colorscheme
 colorscheme="${colorscheme}"
 
