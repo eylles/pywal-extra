@@ -6,7 +6,7 @@ pipe="/tmp/nvim.pipe"
 colorscheme="pywal16"
 statusbar=""
 
-config_dir="${XDG_CONFIG_HOME:-~/.config}/nvim-colo-reload"
+config_dir="${XDG_CONFIG_HOME:-${HOME}/.config}/nvim-colo-reload"
 config_file="${config_dir}/configrc"
 
 nvim_send () {
