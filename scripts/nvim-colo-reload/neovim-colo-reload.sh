@@ -2,6 +2,7 @@
 
 myname="${0##*/}"
 
+nv_bin="/usr/bin/nvim"
 pipe="/tmp/nvim.pipe"
 colorscheme="pywal16"
 statusbar=""
@@ -10,7 +11,7 @@ config_dir="${XDG_CONFIG_HOME:-${HOME}/.config}/nvim-colo-reload"
 config_file="${config_dir}/configrc"
 
 nvim_send () {
-    nvim --server "$pipe" --remote-send ":${1}<CR>"
+    $nv_bin --server "$pipe" --remote-send ":${1}<CR>"
 }
 
 rel_colo () {
@@ -43,6 +44,9 @@ else
     cat << __HEREDOC__ >> "$config_file"
 # vim: ft=sh
 # ${myname} config file
+
+# neovim binary
+nv_bin="${nv_bin}"
 
 pipe="${pipe}"
 
