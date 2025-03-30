@@ -1,5 +1,5 @@
 .POSIX:
-PREFIX = ~/.local
+PREFIX = ${HOME}/.local
 .PHONY: all install uninstall
 
 all: nvim-wrap nvim-colo-reload
