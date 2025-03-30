@@ -22,4 +22,9 @@ installation:
 make install clean
 ```
 
+Now add some alias like this to your shell's rc (bashrc, zshrc, .profile)
+```sh
+alias nvim="nvim-wrap"
+```
+
 have fun!!!
