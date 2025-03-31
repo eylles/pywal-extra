@@ -25,6 +25,9 @@ rel_bar () {
             lualine)
                 send_com="lua require'lualine'.setup{options={theme='${colorscheme}'}}"
                 ;;
+            airline)
+                send_com="AirlineTheme ${colorscheme}"
+                ;;
         esac
         nvim_send ":$send_com<CR>"
     fi
