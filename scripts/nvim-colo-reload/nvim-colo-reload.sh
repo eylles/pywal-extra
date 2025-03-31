@@ -29,7 +29,7 @@ rel_bar () {
                 send_com="AirlineTheme ${colorscheme}"
                 ;;
         esac
-        nvim_send ":$send_com<CR>"
+        nvim_send "$send_com<CR>"
     fi
 }
 
