@@ -11,7 +11,9 @@ config_dir="${XDG_CONFIG_HOME:-${HOME}/.config}/nvim-colo-reload"
 config_file="${config_dir}/configrc"
 
 nvim_send () {
-    $nv_bin --server "$pipe" --remote-send ":${1}<CR>"
+    for pipe_instance in "${pipe}"/*.pipe; do
+        $nv_bin --server "$pipe_instance" --remote-send ":${1}<CR>"
+    done
 }
 
 rel_colo () {
@@ -51,6 +53,7 @@ else
 # neovim binary
 nv_bin="${nv_bin}"
 
+# pipe directory
 pipe="${pipe}"
 
 # colorscheme

@@ -24,8 +24,18 @@ else
 # neovim binary
 nv_bin="${nv_bin}"
 
+# pipe directory
 pipe="${pipe}"
 __HEREDOC__
 fi
 
-exec $nv_bin --listen "$pipe" "$@"
+mypid="$$"
+
+# make pipe dir
+if [ ! -d "$pipe" ]; then
+    mkdir -p "$pipe"
+fi
+
+pipe_file="${pipe}/${mypid}.pipe"
+
+exec $nv_bin --listen "$pipe_file" "$@"
