@@ -4,7 +4,7 @@
 # Export FZWAL_RESET_CURSOR=1 if you don't want Pywal to change
 # the default behaviour of the terminal cursor (inverse fg and bg).
 
-cp -f ~/.cache/wal/colors.json /tmp/fzwal-backup.json
+cp -f "${HOME}"/.cache/wal/colors.json /tmp/fzwal-backup.json
 
 if [ -z "$FZWAL_COLORS" ]; then
     FZWAL_COLORS="--color=fg:15,bg:0,hl:10,fg+:15,bg+:8,hl+:12 \
@@ -23,7 +23,7 @@ if [ -z "$FZWAL_OPTS" ]; then
      --bind alt-j:preview-down"
 fi
 
-config_dir="${XDG_CONFIG_HOME:-~/.config}/wal-choose"
+config_dir="${XDG_CONFIG_HOME:-$HOME/.config}/wal-choose"
 config_file="${config_dir}/configrc"
 
 colsmethod=darken
