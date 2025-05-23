@@ -10,6 +10,9 @@ statusbar=""
 config_dir="${XDG_CONFIG_HOME:-${HOME}/.config}/nvim-colo-reload"
 config_file="${config_dir}/configrc"
 
+config_dir_nvw="${XDG_CONFIG_HOME:-${HOME}/.config}/nvim-wrap"
+config_nvw="${config_dir_nvw}/configrc"
+
 nvim_send () {
     for pipe_instance in "${pipe}"/*.pipe; do
         $nv_bin --server "$pipe_instance" --remote-send ":${1}<CR>"
@@ -50,18 +53,16 @@ else
 # vim: ft=sh
 # ${myname} config file
 
-# neovim binary
-nv_bin="${nv_bin}"
-
-# pipe directory
-pipe="${pipe}"
-
 # colorscheme
 colorscheme="${colorscheme}"
 
 # statusbar
 statusbar=""
 __HEREDOC__
+fi
+
+if [ -f "$config_nvw" ]; then
+    . "$config_nvw"
 fi
 
 rel_colo
