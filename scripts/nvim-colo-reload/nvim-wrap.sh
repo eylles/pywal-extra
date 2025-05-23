@@ -5,7 +5,7 @@ myname="${0##*/}"
 # you can change this on config to the correct path on your system
 nv_bin="/usr/bin/nvim"
 
-pipe="/tmp/nvim.pipe"
+pipe="${XDG_RUNTIME_DIR:-/tmp}/nvim.pipe"
 
 config_dir="${XDG_CONFIG_HOME:-${HOME}/.config}/nvim-wrap"
 config_file="${config_dir}/configrc"
@@ -25,7 +25,7 @@ else
 nv_bin="${nv_bin}"
 
 # pipe directory
-pipe="${pipe}"
+pipe="${XDG_RUNTIME_DIR:-/tmp}/nvim.pipe"
 __HEREDOC__
 fi
 
@@ -36,6 +36,6 @@ if [ ! -d "$pipe" ]; then
     mkdir -p "$pipe"
 fi
 
-pipe_file="${pipe}/${mypid}.pipe"
+pipe_file="${pipe}/nvim.${mypid}.pipe"
 
 exec $nv_bin --listen "$pipe_file" "$@"

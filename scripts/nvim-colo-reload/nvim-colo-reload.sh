@@ -3,7 +3,7 @@
 myname="${0##*/}"
 
 nv_bin="/usr/bin/nvim"
-pipe="/tmp/nvim.pipe"
+pipe="${XDG_RUNTIME_DIR:-/tmp}/nvim.pipe"
 colorscheme="pywal16"
 statusbar=""
 
@@ -14,7 +14,7 @@ config_dir_nvw="${XDG_CONFIG_HOME:-${HOME}/.config}/nvim-wrap"
 config_nvw="${config_dir_nvw}/configrc"
 
 nvim_send () {
-    for pipe_instance in "${pipe}"/*.pipe; do
+    for pipe_instance in "${pipe}"/nvim.*.pipe; do
         $nv_bin --server "$pipe_instance" --remote-send ":${1}<CR>"
     done
 }
