@@ -20,13 +20,14 @@ def generate_color_images(colors, destdir):
 parser = argparse.ArgumentParser()
 
 # Adding optional argument
-parser.add_argument("-f", "--file", help="JSON file to use")
-parser.add_argument(
-    "-o",
-    "--output-dir",
-    dest="targ",
-    help="output directory for the palette image.",
-)
+parser.add_argument("-f", "--file",
+                    help="JSON file to use, "
+                         "by default XDG_CACHE_HOME/wal/colors.json"
+                    )
+parser.add_argument("-o", "--output-dir", dest="targ",
+                    help="output directory for the palette image, "
+                         "by default XDG_CACHE_HOME/wal/"
+                    )
 
 
 # Read arguments from command line
