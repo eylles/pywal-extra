@@ -2,6 +2,7 @@
 
 import json
 import os
+import sys
 import argparse
 
 from PIL import Image
@@ -37,12 +38,17 @@ base_cache_dir = os.environ.get('XDG_CACHE_HOME',
 wal_cache_dir = base_cache_dir + '/wal'
 
 if args.file:
-    wal_cache_file = args.file
+    if os.path.isfile(args.file):
+        wal_cache_file = args.file
+    else:
+        sys.exit("json file does not exist!")
 else:
     wal_cache_file = wal_cache_dir + '/colors.json'
 
 if args.targ:
     output_dir = args.targ
+    if not os.path.exists(output_dir):
+        os.mkdir(output_dir)
 else:
     output_dir = wal_cache_dir
 
