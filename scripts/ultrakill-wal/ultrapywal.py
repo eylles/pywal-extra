@@ -2,6 +2,7 @@
 
 import json
 import os
+import argparse
 
 from PIL import Image
 
@@ -14,11 +15,36 @@ def generate_color_images(colors, destdir):
     img.save(os.path.join(destdir, 'colors.png'))
 
 
+# Initialize parser
+parser = argparse.ArgumentParser()
+
+# Adding optional argument
+parser.add_argument("-f", "--file", help="JSON file to use")
+parser.add_argument(
+    "-o",
+    "--output-dir",
+    dest="targ",
+    help="output directory for the palette image.",
+)
+
+
+# Read arguments from command line
+args = parser.parse_args()
+
 username = os.environ['USER']
 base_cache_dir = os.environ.get('XDG_CACHE_HOME',
                                 '/home/{}/.cache/'.format(username))
 wal_cache_dir = base_cache_dir + '/wal'
-wal_cache_file = wal_cache_dir + '/colors.json'
+
+if args.file:
+    wal_cache_file = args.file
+else:
+    wal_cache_file = wal_cache_dir + '/colors.json'
+
+if args.targ:
+    output_dir = args.targ
+else:
+    output_dir = wal_cache_dir
 
 with open(wal_cache_file) as json_file:
     data = json.load(json_file)
@@ -43,4 +69,4 @@ palette = {
     "color15": data["colors"]["color15"],
 }
 
-generate_color_images(palette, wal_cache_dir)
+generate_color_images(palette, output_dir)
