@@ -92,9 +92,12 @@ end
 ---@param color1 string hex color
 ---@param ratio number float
 ---@return string hex color
-local function foxyfy(color1, ratio)
+local function foxify(color1, ratio)
     local result = ""
     local c_rgb = hex2rgb(color1)
+    c_rgb[1] = math.max(c_rgb[1], 10)
+    c_rgb[2] = math.max(c_rgb[2], 10)
+    c_rgb[3] = math.max(c_rgb[3], 10)
     local r = math.floor(c_rgb[1] + ( c_rgb[1] * ratio ))
     local g = math.floor(c_rgb[2] + ( c_rgb[2] * ratio ))
     local b = math.floor(c_rgb[3] + ( c_rgb[3] * ratio ))
